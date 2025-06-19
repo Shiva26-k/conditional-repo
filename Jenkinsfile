@@ -4,12 +4,12 @@ pipeline{
         DEPLOY_TO = 'production'
     }
     stages{
-        stage('DeployProduction'){
+        stage('deploying'){
             when{
-                environment name :'DEPLOY_TO' , value:'production'
+                equals expected:"prod" , actual:"${DEPLOT_TO}"
             }
             steps{
-                echo " deploying the production env"
+                echo "Deploying in production"
             }
         }
     }
